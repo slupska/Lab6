@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    int licznik = 0;
+
+    cout << "Podaj liczbe naturalna: ";
+    cin >> n;
+
+    for (int i = 1; i <= n; i++) {
+        if (i % 5 == 0 && i % 3 != 0) {
+            licznik++;
+        }
+    }
+
+    cout << "Ilosc liczb naturalnych nie większych od " << n
+    << ", ktore są podzielne przez 5, ale nie przez 3: " << licznik << endl;
+
+    return 0;
+}
