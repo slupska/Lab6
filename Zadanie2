@@ -1,0 +1,72 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+struct student {
+    string name;
+    int it;    
+    int math;
+    int biology;
+    int polish;
+};
+
+int main() {
+    student students[6];
+
+    for (int i = 0; i < 6; ++i) {
+        cout << "Podaj imię ucznia " << i + 1 << ": ";
+        cin >> students[i].name;
+        cout << "Podaj oceny ucznia ";
+        cin >> students[i].name;
+        cout << "Informatyka: ";
+        cin >> students[i].it;
+        cout << "Matematyka: ";
+        cin >> students[i].math;
+        cout << "Biologia: ";
+        cin >> students[i].biology;
+        cout << "Język Polski: ";
+        cin >> students[i].polish;
+    }
+
+    while (true) {
+        int studentNumber, subjectNumber;
+
+        cout << "\nPodaj numer ucznia (1-6) lub 0 aby zakończyć: ";
+        cin >> studentNumber;
+
+        if (studentNumber == 0) {
+            break;
+        }
+
+        if (studentNumber < 1 || studentNumber > 6) {
+            cout << "Nieprawidłowy numer ucznia! Spróbuj ponownie.\n";
+            continue;
+        }
+
+        cout << "Podaj numer przedmiotu (1 - Informatyka, 2 - Matematyka, 3 - Biologia, 4 - Język Polski): ";
+        cin >> subjectNumber;
+
+        if (subjectNumber < 1 || subjectNumber > 4) {
+            cout << "Nieprawidłowy numer przedmiotu! Spróbuj ponownie.\n";
+            continue;
+        }
+        cout << "Ocena ucznia " << students[studentNumber - 1].name << " z ";
+        switch (subjectNumber) {
+            case 1: cout << "Informatyki: "; break;
+            case 2: cout << "Matematyki: "; break;
+            case 3: cout << "Biologii: "; break;
+            case 4: cout << "Języka Polskiego: "; break;
+        }
+        switch (subjectNumber) {
+            case 1: cout << students[studentNumber - 1].it; break;
+            case 2: cout << students[studentNumber - 1].math; break;
+            case 3: cout << students[studentNumber - 1].biology; break;
+            case 4: cout << students[studentNumber - 1].polish; break;
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+
